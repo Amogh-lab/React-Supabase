@@ -19,50 +19,8 @@ div {
   gap: 10px;
   width: 100%;
 }
-table {
-  width: 80%;
-  max-width: 800px;
-  border-collapse: collapse;
-  margin: 20px 0;
-  font-size: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;
-  left: 0;
-}
 
-thead {
-  background-color: #343a40;
-  color: #ffffff;
-}
 
-thead th {
-  text-align: left;
-  padding: 12px 15px;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-tbody tr:hover {
-  background-color: #e9ecef;
-  cursor: pointer;
-}
-
-tbody td {
-  padding: 12px 15px;
-  border-bottom: 1px solid #ddd;
-}
-
-tbody tr:last-child td {
-  border-bottom: none;
-}
-
-th, td {
-  text-align: left;
-}
 input[type="text"] {
   width: 100%;
   margin-bottom: 4px;
@@ -130,3 +88,4 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #333a41;
 }
+

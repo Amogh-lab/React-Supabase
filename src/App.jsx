@@ -1,19 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import { supabase } from './createClient'
 import './App.css'
+import DisplayTable from './components/displaytable';
 
 const App = () => {
 
   const [users, setusers] = useState([]);
+  const [user, setuser] = useState({name: '', age:'' , gender:'' })
+  const [user2,setUser2]=useState({id:'',name:'',age:'',gender:''})
+  const [isEditing, setIsEditing] = useState(false)
 
-  const [user, setuser] = useState({ 
-      name: '', age:'' , gender:'' 
-    })
-    console.log(user);
-
-    useEffect(()=> {
-      fetchUsers()
-    }, [])
+    useEffect(()=> { fetchUsers() }, [])
 
   async function fetchUsers() {
     const {data} = await supabase
@@ -31,14 +28,76 @@ const App = () => {
     })
   }
 
+  function handleChange2(event){
+    
+    setUser2(prevFormData=>{
+      return{
+        ...prevFormData,
+        [event.target.name]:event.target.value
+      }
+    })
+  }
+
   async function createUser() {
     await supabase
     .from('users')
     .insert({ name: user.name, age: user.age, gender: user.gender})
+
+    fetchUsers()
   }
 
+  async function deleteUser(userID) {
+    const { data, error } = await supabase
+     .from('users')
+     .delete()
+     .eq('id', userID)
+
+     fetchUsers()
+
+    if(error)
+       console.log(error)
+    if(data)
+      console.log(data)
+  }
+
+  function displayUser(userID){
+
+    users.map((user)=>{
+
+        if(user.id==userID){
+          setUser2({ id:user.id,name:user.name,age:user.age,gender:user.gender})
+          console.log(user)
+          setIsEditing(true);
+        }
+    })
+   }
+
+   async function updateUser(userID){
+
+    const { data, error } = await supabase
+      .from('users')
+      .update({ id:user2.id,name:user2.name,age:user2.age,gender:user2.gender})
+      .eq('id', userID)
+
+      fetchUsers()
+
+      if (error){
+        console.log(error)
+      }
+  
+      if (data){
+        console.log(data)
+      }
+      setIsEditing(false);
+   }
+
+function closeEditForm() {
+    setIsEditing(false);
+}
+
+
   return (
-    <div>
+  <div>
   <div>
       <form onSubmit={createUser}>
         <input type="text" placeholder='Name' name='name' onChange={handleChange}/>
@@ -46,31 +105,20 @@ const App = () => {
         <input type="text" placeholder='Gender(Male/Female/other)' name='gender' onChange={handleChange}/>
         <button type='submit'>Create</button>
       </form>
-      </div>
-
+  </div>
       <div>
-      <table>
-        <thead>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Gender</th>
-        </tr>
-        </thead>
-        <tbody>
-      {
-        users.map((user)=>
-          <tr key={user.id}>
-          <td>{user.id}</td>
-          <td>{user.name}</td>
-          <td>{user.age}</td>
-          <td>{user.gender}</td>
-        </tr>
-      )} 
-        </tbody>
-      </table>
+           <DisplayTable users={users} deleteUser={deleteUser} displayUser={displayUser}/>
       </div>
+      { isEditing && (
+      <form onSubmit={()=>updateUser(user2.id)}>
+        <input type="text" defaultValue={user2.name}  name='name' onChange={handleChange2}/><br/>
+        <input type="number" defaultValue={user2.age} name='age' onChange={handleChange2} min="0"/>
+        <input type="text" defaultValue={user2.gender}  name='gender' onChange={handleChange2}/>
+        <button type='submit'>Update</button>
+        <button type="button" onClick={closeEditForm}>Cancel</button>
+      </form>
+       )}      
+
     </div>
   )
 }
