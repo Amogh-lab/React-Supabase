@@ -1,0 +1,132 @@
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #343a40;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+table {
+  width: 80%;
+  max-width: 800px;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  left: 0;
+}
+
+thead {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+thead th {
+  text-align: left;
+  padding: 12px 15px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+
+tbody td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+th, td {
+  text-align: left;
+}
+input[type="text"] {
+  width: 100%;
+  margin-bottom: 4px;
+  max-width: 400px;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #495057;
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: #415264;
+  box-shadow: 0 0 4px #445364;
+}
+
+input[type="text"]:hover {
+  border-color: #868e96;
+}
+input[type="number"] {
+  margin-bottom: 4px;
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #495057;
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  outline: none;
+  appearance: textfield;
+}
+
+input[type="number"]:focus {
+  border-color: #415264;
+  box-shadow: 0 0 4px #445364;
+}
+
+input[type="number"]:hover {
+  border-color: #868e96;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+button[type="submit"] {
+  margin-left: 10px;
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #47698d;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #333a41;
+}
