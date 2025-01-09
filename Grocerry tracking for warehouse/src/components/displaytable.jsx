@@ -1,36 +1,42 @@
 import React from 'react';
-import './displaytable.css'
+import './displaytable.css';
 
-const DisplayTable = ({ users, deleteUser, displayUser }) => {
- return (
-  <div>
-   <table>
-     <thead>
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Gender</th>
-        <th>Action</th>
-      </tr>
-     </thead>
-    <tbody>
-     {users.map((user) => (
-      <tr key={user.id}>
-        <td>{user.id}</td>
-        <td>{user.name}</td>
-        <td>{user.age}</td>
-        <td>{user.gender}</td>
-        <td>
-           <button onClick={() => deleteUser(user.id)}>Delete</button>
-           <button onClick={() => displayUser(user.id)}>Edit</button>
-        </td>
-      </tr>
-     ))}
-    </tbody>
-   </table>
-  </div>
+const displaytable = ({ items, deleteItem, displayItem }) => {
+  return (
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Supplier</th>
+            <th>Expiry Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((item) => (
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>{item.Item_name}</td>
+              <td>{item.Category}</td>
+              <td>{item.Quantity}</td>
+              <td>{item.price}</td>
+              <td>{item.Supplier}</td>
+              <td>{item.Expiry_date}</td>
+              <td>
+                <button onClick={() => deleteItem(item.id)}>Delete</button>
+                <button onClick={() => displayItem(item.id)}>Edit</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
-export default DisplayTable;
+export default displaytable;

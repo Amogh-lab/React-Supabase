@@ -89,3 +89,43 @@ button[type="submit"]:hover {
   background-color: #333a41;
 }
 
+input[type="date"] {
+  margin-bottom: 4px;
+  width: 100%;
+  max-width: 400px;
+  padding: 8px 15px;
+  font-size: 16px;
+  color: #495057;
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  outline: none;
+  appearance: none;
+}
+
+input[type="date"]:focus {
+  border-color: #415264;
+  box-shadow: 0 0 4px #445364;
+}
+
+input[type="date"]:hover {
+  border-color: #868e96;
+}
+
+input[type="date"]::-webkit-datetime-edit {
+  color: #495057;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
