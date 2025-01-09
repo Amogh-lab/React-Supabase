@@ -8,8 +8,8 @@ div {
   }
   
   table {
-    width: 90%;
-    max-width: 800px;
+    width: 90%; /* Increased width to make the table more spacious */
+    max-width: 1000px; /* Increased max width */
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 16px;
@@ -26,7 +26,8 @@ div {
   
   thead th {
     text-align: left;
-    padding: 12px 20px;
+    padding: 12px 15px;
+    white-space: nowrap; /* Prevent text wrapping */
   }
   
   tbody tr:nth-child(even) {
@@ -39,8 +40,9 @@ div {
   }
   
   tbody td {
-    padding-left: 15px;
+    padding: 12px 15px;
     border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Prevent text wrapping */
   }
   
   tbody tr:last-child td {
@@ -54,7 +56,6 @@ div {
   button {
     margin-left: 8px;
     padding: 10px 18px;
-    margin-bottom: 5px;
     font-size: 16px;
     color: #ffffff;
     background-color: #47698d;
@@ -67,6 +68,7 @@ div {
   button:hover {
     background-color: #333a41;
   }
+  
   
   input[type="text"], 
   input[type="number"], 

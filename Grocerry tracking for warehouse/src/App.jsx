@@ -52,12 +52,12 @@ const App = () => {
 
   async function createItem() {
     await supabase.from('grocery').insert({
-      item_name: item.Item_name,
-      category: item.Category,
-      quantity: item.Quantity,
+      Item_name: item.Item_name,
+      Category: item.Category,
+      Quantity: item.Quantity,
       price: item.price,
-      supplier: item.Supplier,
-      expiry_date: item.Expiry_date,
+      Supplier: item.Supplier,
+      Expiry_date: item.Expiry_date,
     });
     fetchItems();
   }
@@ -79,12 +79,12 @@ const App = () => {
     await supabase
       .from('grocery')
       .update({
-        item_name: itemToEdit.Item_name,
-        category: itemToEdit.Category,
-        quantity: itemToEdit.Quantity,
+        Item_name: itemToEdit.Item_name,
+        Category: itemToEdit.Category,
+        Quantity: itemToEdit.Quantity,
         price: itemToEdit.price,
-        supplier: itemToEdit.Supplier,
-        expiry_date: itemToEdit.Expiry_date,
+        Supplier: itemToEdit.Supplier,
+        Expiry_date: itemToEdit.Expiry_date,
       })
       .eq('id', itemID);
     fetchItems();
@@ -125,12 +125,12 @@ const App = () => {
             updateItem(itemToEdit.id);
           }}
         >
-          <input type="text" defaultValue={itemToEdit.Item_name} name="item_name" onChange={handleEditChange} required />
-          <input type="text" defaultValue={itemToEdit.Category} name="category" onChange={handleEditChange} required />
-          <input type="number" defaultValue={itemToEdit.Quantity} name="quantity" onChange={handleEditChange} min="0" required />
+          <input type="text" defaultValue={itemToEdit.Item_name} name="Item_name" onChange={handleEditChange} required />
+          <input type="text" defaultValue={itemToEdit.Category} name="Category" onChange={handleEditChange} required />
+          <input type="number" defaultValue={itemToEdit.Quantity} name="Quantity" onChange={handleEditChange} min="0" required />
           <input type="number" defaultValue={itemToEdit.price} name="price" onChange={handleEditChange} step="0.01" required />
-          <input type="text" defaultValue={itemToEdit.Supplier} name="supplier" onChange={handleEditChange} required />
-          <input type="date" defaultValue={itemToEdit.Expiry_date} name="expiry_date" onChange={handleEditChange} required />
+          <input type="text" defaultValue={itemToEdit.Supplier} name="Supplier" onChange={handleEditChange} required />
+          <input type="date" defaultValue={itemToEdit.Expiry_date} name="Expiry_date" onChange={handleEditChange} required />
           <button type="submit">Update</button>
           <button type="button" onClick={closeEditForm}>Cancel</button>
         </form>
