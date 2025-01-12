@@ -42,12 +42,18 @@ Follow these steps to run the project locally:
 3. Setup Supabase
 - Go to [Supabase](supabase.com) and create a project 
 - Create a Table named "users" with following structure
-| Column Name | Data Type | Description                 |
-|-------------|-----------|-----------------------------|
-| id          | integer   | Primary key, auto-increment |
-| name        | text      | User's name                 |
-| age         | integer   | User's age                  |
-| gender      | text      | User's gender (optional)    |
+
+- |-------------|-----------|-----------------------------|
+
+- | id          | integer   | Primary key, auto-increment |
+
+- | name        | text      | User's name                 |
+
+- | age         | integer   | User's age                  |
+
+- | gender      | text      | User's gender (optional)    |
+
+give me readme.cd code to create this table
 
 4. Obtain Supabase Connection Details:
 - From your Supabase project dashboard, navigate to the Settings tab.
