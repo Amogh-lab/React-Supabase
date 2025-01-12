@@ -4,7 +4,7 @@ const introsection = () => {
   return (
     <div >      
     <h1 className='mt-3 text-6xl font-extrabold font-mono text-green-300 uppercase tracking-widest'>
-      C R U D</h1>
+      CRUD APP</h1>
       <h1 className="mt-10 text-3xl font-bold align-middle">
         Simple CRUD Application
       </h1>
